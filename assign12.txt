@@ -1,0 +1,55 @@
+*************assign-12*********
+DESCRIPTION
+Write a method that uses lambda expression to accept username and password and return true or false.
+
+If username is  admin and password is admin then return true 
+else return false.
+
+Input Format
+First line will contain the username and the second line will contain password.
+
+Output Format
+Single line containing true or false.
+
+Sample Test Case:
+
+Input
+hello
+admin
+
+Output 
+false
+
+Explanation
+Here the username was not admin that is why the output is false.
+
+
+
+
+
+************code***************
+
+import java.io.*;
+import java.util.*;
+import java.util.function.BiFunction;
+
+
+
+public class Source {
+    public static void main(String[] args) {
+        
+        Scanner in = new Scanner(System.in);
+        String un=in.next();
+        String pn=in.next();
+       
+        BiFunction<String, String, Boolean> validate=(u,p)->{if(u.equals("admin")&&u.equals("admin"))
+            return true;
+        
+            return false;
+        };
+        
+    Boolean out=validate.apply(un,pn);
+    System.out.println(out);
+       
+   }
+}

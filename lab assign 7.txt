@@ -1,0 +1,139 @@
+7.1
+
+
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+
+public class ReverseArray {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter size of array");
+        int n = sc.nextInt();
+        ArrayList a = new ArrayList();
+        System.out.println("Enter elements of array");
+        for(int i = 0; i<n;i++){
+            
+            int sum = 0;
+            int in = sc.nextInt();
+            while(in!= 0){
+            int rem = in %10;
+            sum = (sum*10)+rem;
+            in = in / 10;
+            }
+            a.add(sum);
+        }
+        System.out.println(a);
+        Collections.sort(a);
+        System.out.println(a);
+    }
+
+}
+
+
+
+
+
+****************************************************************
+7.3
+
+
+
+import java.util.*;
+
+
+public class removeElements {
+
+    public static void main(String[] args){
+        ArrayList<Integer> list1 = new ArrayList<Integer>();
+        ArrayList<Integer> list2 = new ArrayList<Integer>();
+        //List<Integer> intersection = new ArrayList<Integer>(list1);
+        //intersection.retainAll(list2);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter size of list1 and list2");
+        int n1 = sc.nextInt();
+        int n2 = sc.nextInt();
+        System.out.println("Enter elements of list1");
+        for(int i = 0; i<n1;i++){
+            int in = sc.nextInt();
+            list1.add(in);
+        }
+        System.out.println("Enter elements of list2");
+        for(int i = 0; i<n2;i++){
+            int in = sc.nextInt();
+            list2.add(in);
+        }
+        list1.removeAll(list2);
+        System.out.println(list1);
+    }
+}
+
+
+******************************************************************
+7.4
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.lang.Math;
+
+public class getSquares {
+    public static HashMap getSquares(int[] array){
+        HashMap<Integer, Integer> map = new HashMap<Integer,Integer>();
+        for(int i : array){
+            map.put(i, i*i);
+        }
+        return map;
+    }
+    public static void main(String[] args){
+        //ArrayList<Double> list = new ArrayList<Double>();
+        int array[] = new int[]{1,2,3,4,5,6,7};
+        HashMap<Integer, Integer> map = getSquares(array);
+        Iterator<Integer> it = map.keySet().iterator();
+        while(it.hasNext()){
+            Integer key = it.next();
+            System.out.println(key+ " : " +map.get(key));
+        }
+    }
+
+}
+
+
+***************************************************************
+7.5
+
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+
+
+public class productNames {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        ArrayList<String> list = new ArrayList<String>();
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            list.add(sc.next());
+            
+        }
+        Collections.sort(list);
+        //sc.close();
+        //System.out.println(list);
+        for(String name : list){
+            System.out.println(name);
+        }
+        
+    }
+
+}

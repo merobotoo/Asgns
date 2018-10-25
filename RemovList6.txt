@@ -1,0 +1,27 @@
+**************Remove the List************
+
+Asgn:6
+
+Qn:
+DESCRIPTION
+Create a method which can remove a list from another list
+
+Method Name: removeElements
+Method Description :  Removes the elements in one list that is present in the second list also.
+Argument: List<String> list1, List<String> list2;
+Return Type : List- ArrayList contains the resulting List after the removal process
+Logic:  Accept two List objects list1 and list2 and remove the elements from list1 that are present in list2. This should be done in single step process without using loop. 
+Hint: Use the List API which removes all the items in List1 which are contained in List2.
+
+
+*************code**************
+
+import java.util.List;
+    import java.util.ArrayList ;
+    
+    class Source{
+        public List<String> removeElements(List<String> l1,List<String> l2){
+            l1.retainAll(l2);
+            return l1;
+        }
+    }

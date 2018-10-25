@@ -1,0 +1,40 @@
+**************Return the Square**************
+
+Asgn-7
+
+Qn:
+DESCRIPTION
+Create a method which accepts an array of numbers and returns the numbers and their squares in an HashMap.
+
+Method Name: getSquares
+Method Description: Accepts a list of numbers and return their squares
+Argument: int[]
+Return Type: Map
+Logic: Iterate through the list, find the square of each
+number and add the elements to a map object
+with the number as the key and the square as the value.
+
+
+*************Code********************
+
+import java.util.HashMap;
+import java.util.*;
+class Source{
+    public static HashMap<Integer,Integer> getSquares(int numbers[]){
+        //Write your code here
+         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+         for (int n: numbers) {
+      map.put( n, n*n);
+    }
+    return map;
+    }
+  public static void main(String[] args) {
+    int numbers[] = new int[]{1,2,3,4,5,6,7,8,9};
+    HashMap<Integer, Integer> map = getSquares(numbers);
+    Iterator<Integer> it = map.keySet().iterator();
+    while(it.hasNext()){
+    Integer key = it.next();
+      System.out.println(key + " : " + map.get(key));
+    }
+  }
+  }

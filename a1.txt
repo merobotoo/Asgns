@@ -1,0 +1,72 @@
+assgn 1L:
+
+
+import java.math.*;
+import java.lang.*;
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.util.regex.*;
+class Person{
+    public enum Gender{M,F;}
+    BigInteger number;
+    String firstName;
+    String lastName;
+    Gender gender;
+    public Person() {}
+    public Person(String firstName, String lastName, Gender gender, BigInteger number) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.number = number;
+        
+    }
+    public String getFirstName() {
+        return this.firstName;
+    }
+     public String getLastName() {
+        return this.lastName;
+    }
+     public Gender getGender() {
+        return this.gender;
+    }
+     public BigInteger getNumber() {
+        return this.number;
+    }
+     public void setFirstName(String firstName) {
+         this.firstName = firstName;
+    }
+     public void setLastName(String lastName) {
+         this.lastName = lastName;
+    }
+     public void setGender(Gender gender) {
+         this.gender = gender;
+    }
+     public void setNumber(BigInteger number) {
+         this.number = number;
+    }
+    public static String displayDetails(Person p) {
+        String result = "";
+        result += "FirstName:"+" "+p.firstName+ "\n";
+        result += "LastName:"+" "+p.lastName+ "\n";
+        result += "Gender:"+" "+p.gender+ "\n";
+        result += "Number:"+" "+p.number;
+        
+        return result;
+    }
+    
+}
+class child extends Person {
+    public static void main(String args[]) {
+        child c = new child();
+        c.getDetails();
+        
+    }
+    public void getDetails() {
+        Gender g = Gender.F;
+        Gender g1 = Gender.M;
+        BigInteger n = BigInteger.valueOf(999999999);
+        Person p = new Person("ABC","DEF",g,n);
+        Person.displayDetails(p);
+    }
+}

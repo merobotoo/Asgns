@@ -1,0 +1,187 @@
+package com.cg.eis.bean;
+
+import com.cg.eis.exception.EmployeeException;
+
+public class Employee {
+
+    public String name;
+    double salary;
+    String id;
+    String Designation;
+    public String InsuranceScheme;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getDesignation() {
+        return Designation;
+    }
+
+    public void setDesignation(String designation) {
+        Designation = designation;
+    }
+
+    public Employee() {
+
+    }
+
+    public Employee(String name, double salary, String id, String Designation) throws EmployeeException {
+        this.name = name;
+        this.salary = salary;
+        this.id = id;
+        this.Designation = Designation;
+        InsuranceScheme = getInsuranceScheme(salary);
+        
+    }
+
+    private String getInsuranceScheme(double salary) {
+        // Write your code here
+        // should return the schemes as schemen a, scheme b, scheme c, no scheme
+        // , null or raise an exception.
+        String is = "";
+        
+        if (salary > 5000 && salary < 20000) {
+//          Designation = "System Associate";
+            is = "scheme c";
+        } else if (salary >= 20000 && salary < 40000) {
+//          Designation = "Programmer";
+            is = "scheme b";
+        } else if (salary >= 40000) {
+//          Designation = "Manager";
+            is = "scheme a";
+        } else if (salary < 5000 && salary >= 3000) {
+//          Designation = "Clerk";
+            is = "no scheme";
+        }
+        else if (salary < 3000) {
+            
+                try {
+                    throw new EmployeeException("Salary Exception");
+                } catch (EmployeeException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        return is;
+    }
+
+    public String getEmployeeDetails() {
+        // Write your code here
+        // Should return a String in the below format yu
+        // Name: name Id: id Salary: salary Designation: Designation
+        // InsuranceScheme: InsuranceScheme
+
+        return "Name: " + name + " Id: " + id + " Salary: " + salary
+                + " Designation: " + Designation + " InsuranceScheme: "
+                + InsuranceScheme;
+    }
+}
+
+
+
+
+
+
+package com.cg.eis.exception;
+
+public class EmployeeException extends Exception{
+    //Write your code here
+     public EmployeeException(String s){
+        super(s);
+    }
+}
+
+
+
+
+
+
+
+
+
+package com.cg.eis.pl;
+
+import com.cg.eis.bean.Employee;
+import com.cg.eis.service.Service;
+public class GenerateOutput {
+    public static void main(String args[]){
+        
+    
+   Employee s = new Employee("Ritvik", 3999, "E1", "SA1");
+   Service ser = new Service();
+   int a = ser.maxMedicalInsurance(s);
+   s.getEmployeeDetails();
+   //System.out.println(a);
+   
+   
+    }
+}
+
+
+
+
+package com.cg.eis.service;
+
+import com.cg.eis.bean.*;
+interface EmployeeService{
+    int SchemeCBal=1000;
+    int SchemeBBal= 5000;
+    int SchemeABal= 15000;
+    
+    public int maxMedicalInsurance(Employee e1);
+}
+public class Service implements EmployeeService {
+     
+    
+    public Service() {
+        // TODO Auto-generated constructor stub
+    }
+
+
+    @Override
+    public int maxMedicalInsurance(Employee e1) {
+        // TODO Auto-generated method stub
+        //System.out.println(e1.InsuranceScheme);
+        if(e1.InsuranceScheme == "scheme c") {
+            return SchemeCBal;
+            //System.out.println(SchemeCBal);           
+        }
+        else if(e1.InsuranceScheme == "scheme b") {
+            return SchemeBBal;
+            //System.out.println(SchemeBBal);       
+        }
+        else if(e1.InsuranceScheme == "scheme a") {
+            return SchemeABal;  
+            //System.out.println(SchemeABal);       
+        }
+        else{
+            //System.out.println(e1.InsuranceScheme);
+            return 0;
+        }
+        //return 0;
+        
+        
+    }
+
+}

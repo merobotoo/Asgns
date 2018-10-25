@@ -1,0 +1,21 @@
+public boolean equals(Object obj)
+	{
+		Employee emp=(Employee)obj;
+		if(emp.empId==this.empId)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	@Override
+	public int hashCode()
+	{
+		return empId;
+	}
+	
+	
+}

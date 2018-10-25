@@ -1,0 +1,55 @@
+class Person {
+    private String name;
+    private float age;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public float getAge(){
+        return age;
+    }
+    public void setAge(float age){
+        this.age = age;
+    }
+    Person()
+    {
+        
+    }
+    class Account{
+        long accNum=1;
+        private double balance;
+        private Person accHolder=new Person();
+        Account(String name, float age, double balance)
+        {
+            accHolder.setName(name);
+            accHolder.setAge(age);
+            this.balance=balance;
+        }
+        public void deposit (double rupees){
+            balance=balance+rupees;
+        }
+        public void withdraw(double rupees){
+            balance=balance + rupees;
+        }
+        
+        public String toString(){
+            return "Name: "+accHolder.getName() +"Age: " +accHolder.getAge() + "AccNumber:"
+        }
+        public double getBalance(){
+            return this.balance;
+        }
+        public void setBalance(double bal){
+            this.balance=balance;
+        }
+        public void setAccountDetails(String name, float age,double balance){
+            accHolder.setName(name);
+            accHolder.setAge(age);
+            this.balance=balance;
+        }
+        public Person getPerson(){
+            return accHolder;
+        }
+    }
+}
